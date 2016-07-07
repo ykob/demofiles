@@ -1,9 +1,9 @@
 {
-  "name": "sphere-to-plane",
-  "description": "",
+  "name": "demofiles",
+  "description": "it is my basic files for three.js demo.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ykob/sphere-to-plane"
+    "url": "https://github.com/ykob/demofiles"
   },
   "private": true,
   "scripts": {
