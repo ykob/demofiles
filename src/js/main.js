@@ -8,7 +8,7 @@ const renderer = new THREE.WebGLRenderer({
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 10000);
 
-const sphere = new Sphere(200);
+const sphere = new Sphere();
 
 const resizeWindow = () => {
   canvas.width = window.innerWidth;
@@ -25,7 +25,7 @@ const setEvent = () => {
 const initDatGui = () => {
   const gui = new dat.GUI();
   const controller = {
-    radius: gui.add(sphere, 'radius', 0, 1000)
+    radius: gui.add(sphere, 'radius', 0, 1000).name('Sphere Radius')
   }
   controller.radius.onChange((value) => {
     sphere.mesh.material.uniforms.radius.value = value;
