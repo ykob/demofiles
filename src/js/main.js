@@ -7,6 +7,7 @@ const renderer = new THREE.WebGLRenderer({
 });
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 10000);
+const clock = new THREE.Clock();
 
 const sphere = new Sphere();
 
@@ -32,6 +33,7 @@ const initDatGui = () => {
   });
 }
 const render = () => {
+  sphere.render(clock.getDelta());
   renderer.render(scene, camera);
 }
 const renderLoop = () => {
