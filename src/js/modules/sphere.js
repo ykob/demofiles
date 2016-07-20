@@ -12,6 +12,10 @@ export default class Sphere {
         type: 'f',
         value: 0,
       },
+      resolution: {
+        type: 'v2',
+        value: new THREE.Vector2(window.innerWidth, window.innerHeight),
+      },
       radius: {
         type: 'f',
         value: this.radius,
@@ -28,5 +32,8 @@ export default class Sphere {
   }
   render(time) {
     this.uniforms.time.value += time * this.time;
+  }
+  resize() {
+    this.uniforms.resolution.value.set(window.innerWidth, window.innerHeight);
   }
 }
