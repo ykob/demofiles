@@ -66,12 +66,14 @@ module.exports.sass = {
   ]
 };
 
-module.exports.replace_html = {
-  src: [
-    `${DIR.DEST}${DIR.PATH}/**/*.html`
-  ],
-  dest: `${DIR.BUILD}${DIR.PATH}`,
-  path: `${DIR.PATH}`
+module.exports.replace = {
+  html: {
+    src: [
+      `${DIR.DEST}${DIR.PATH}/**/*.html`
+    ],
+    dest: `${DIR.BUILD}${DIR.PATH}`,
+    path: `${DIR.PATH}`
+  }
 };
 
 module.exports.minify_css = {
@@ -89,18 +91,28 @@ module.exports.uglify = {
   }
 };
 
-module.exports.copy_vendor_script = {
-  src: [
-    `${DIR.SRC}/js/vendor/*.js`,
-  ],
-  dest: `${DIR.DEST}${DIR.PATH}/js/vendor/`
-};
-
-module.exports.copy_vendor_script_to_build = {
-  src: [
-    `${DIR.DEST}${DIR.PATH}/js/vendor/*.js`,
-  ],
-  dest: `./${DIR.BUILD}${DIR.PATH}/js/vendor/`
+module.exports.copy = {
+  dest: {
+    src: [
+      `${DIR.SRC}/js/vendor/*.js`,
+      `${DIR.SRC}/font/**/*.*`,
+    ],
+    dest: `${DIR.DEST}${DIR.PATH}`,
+    opts: {
+      base: `${DIR.SRC}`
+    }
+  },
+  build: {
+    src: [
+      `${DIR.DEST}${DIR.PATH}/js/vendor/*.js`,
+      `${DIR.DEST}${DIR.PATH}/img/**/*.ico`,
+      `${DIR.DEST}${DIR.PATH}/font/**/*.*`,
+    ],
+    dest: `${DIR.BUILD}${DIR.PATH}`,
+    opts: {
+      base: `${DIR.DEST}${DIR.PATH}`
+    }
+  }
 };
 
 module.exports.imagemin = {
@@ -111,5 +123,14 @@ module.exports.imagemin = {
 };
 
 module.exports.clean = {
-  path: [`${DIR.BUILD}${DIR.PATH}`]
+  dst: {
+    path: [
+      `${DIR.DEST}${DIR.PATH}/**/*.html`,
+      `${DIR.DEST}${DIR.PATH}/css/`,
+      `${DIR.DEST}${DIR.PATH}/js/`
+    ]
+  },
+  build: {
+    path: [`${DIR.BUILD}${DIR.PATH}`]
+  }
 };
