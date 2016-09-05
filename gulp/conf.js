@@ -5,18 +5,34 @@ const DIR = module.exports.DIR =  {
   PATH: '',
   SRC: 'src',
   DEST: 'dst',
-  BUILD: ''
+  BUILD: 'docs'
 };
 
 module.exports.serve = {
-  notify: false,
-  startPath: DIR.PATH,
-  ghostMode: false,
-  server: {
-    baseDir: DIR.DEST,
-    index: 'index.html',
-    routes: {
-      [DIR.PATH]: `${DIR.DEST}${DIR.PATH}/`
+  dst: {
+    //tunnel: 'test',
+    notify: false,
+    startPath: DIR.PATH,
+    ghostMode: false,
+    server: {
+      baseDir: DIR.DEST,
+      index: 'index.html',
+      routes: {
+        [DIR.PATH]: `${DIR.DEST}${DIR.PATH}/`
+      }
+    }
+  },
+  build: {
+    //tunnel: 'test',
+    notify: false,
+    startPath: DIR.PATH,
+    ghostMode: false,
+    server: {
+      baseDir: DIR.BUILD,
+      index: 'index.html',
+      routes: {
+        [DIR.PATH]: `${DIR.BUILD}${DIR.PATH}/`
+      }
     }
   }
 };
