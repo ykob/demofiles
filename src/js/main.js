@@ -8,6 +8,7 @@ const renderer = new THREE.WebGLRenderer({
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 10000);
 const clock = new THREE.Clock();
+const stats = new Stats();
 
 const sphere = new Sphere();
 
@@ -33,12 +34,18 @@ const initDatGui = () => {
     sphere.mesh.material.uniforms.radius.value = value;
   });
 }
+const initStats = () => {
+  stats.showPanel(0);
+  document.body.appendChild(stats.dom);
+}
 const render = () => {
   sphere.render(clock.getDelta());
   renderer.render(scene, camera);
 }
 const renderLoop = () => {
+  stats.begin();
   render();
+  stats.end();
   requestAnimationFrame(renderLoop);
 }
 
@@ -52,6 +59,7 @@ const init = () => {
 
   setEvent();
   initDatGui();
+  initStats();
   resizeWindow();
   renderLoop();
 }
