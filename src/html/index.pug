@@ -2,8 +2,8 @@
   var meta_title = 'demo title';
   var meta_keywords = 'WebGL, three.js';
   var meta_description = 'it is my basic files for three.js demo.';
-  var meta_path = "/";
-  var meta_ogp_img = "share.jpg"
+  var meta_path = '/';
+  var meta_ogp_img = 'share.jpg';
 
 doctype html
 html(lang="ja")
@@ -16,7 +16,7 @@ html(lang="ja")
       p.p-contents-summary__text
         |#{meta_description}
       p.p-contents-summary__link-source
-        a(href="https://github.com/ykob/demofiles")
+        a(href="https://github.com/ykob/"+repository_name)
           |view source.
     canvas(id="canvas-webgl", class="p-canvas-webgl")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r80/three.min.js")
