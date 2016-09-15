@@ -4,6 +4,7 @@
   z-index: 100;
   &__head {
     margin: 0;
+    @include flexFontSize(4);
     font-weight: 400;
     letter-spacing: 2px;
   }
@@ -11,12 +12,12 @@
     max-width: 360px;
     line-height: 1.75;
     margin: 1em 0;
-    @include fontSize(13);
+    @include flexFontSize(1);
     letter-spacing: 1px;
   }
   &__link-source {
     margin: 0;
-    @include fontSize(13);
+    @include flexFontSize(1);
     letter-spacing: 1px;
     a {
       position: relative;
