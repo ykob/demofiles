@@ -55,6 +55,14 @@ module.exports.scripts = {
   dest: `${DIR.DEST}${DIR.PATH}/js`
 };
 
+module.exports.vendor_scripts = {
+  src: [
+    `./${DIR.SRC}/js/vendor/**.js`,
+  ],
+  concat: 'vendor.js',
+  dest: `./${DIR.DEST}${DIR.PATH}/js/`
+};
+
 module.exports.pug = {
   src: [
     `${DIR.SRC}/**/*.pug`,
@@ -99,6 +107,7 @@ module.exports.minify_css = {
 
 module.exports.uglify = {
   src: [
+    `./${DIR.DEST}${DIR.PATH}/js/vendor.js`,
     `./${DIR.DEST}${DIR.PATH}/js/main.js`,
   ],
   dest: `./${DIR.BUILD}${DIR.PATH}/js`,
@@ -110,7 +119,6 @@ module.exports.uglify = {
 module.exports.copy = {
   dest: {
     src: [
-      `${DIR.SRC}/js/vendor/*.js`,
       `${DIR.SRC}/font/**/*.*`,
     ],
     dest: `${DIR.DEST}${DIR.PATH}`,
@@ -120,7 +128,6 @@ module.exports.copy = {
   },
   build: {
     src: [
-      `${DIR.DEST}${DIR.PATH}/js/vendor/*.js`,
       `${DIR.DEST}${DIR.PATH}/img/**/*.ico`,
       `${DIR.DEST}${DIR.PATH}/font/**/*.*`,
     ],
