@@ -1,3 +1,5 @@
+precision highp float;
+
 uniform float radius;
 
 varying vec4 vPosition;

@@ -23,7 +23,7 @@ export default class Sphere {
     };
     return new THREE.Mesh(
       new THREE.SphereGeometry(1, 64, 64),
-      new THREE.ShaderMaterial({
+      new THREE.RawShaderMaterial({
         uniforms: this.uniforms,
         vertexShader: glslify('../../glsl/sphere.vs'),
         fragmentShader: glslify('../../glsl/sphere.fs'),
