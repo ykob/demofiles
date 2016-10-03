@@ -43,6 +43,7 @@
     "watchify": "^3.7.0"
   },
   "dependencies": {
+    "glsl-convert-color": "git://github.com/ykob/glsl-convert-color.git",
     "glsl-easings": "^1.0.0",
     "glsl-inverse": "^1.0.0",
     "glsl-matrix": "git://github.com/ykob/glsl-matrix.git",
