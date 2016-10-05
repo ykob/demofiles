@@ -9,7 +9,7 @@ varying vec4 vPosition;
 #pragma glslify: scaleMatrix = require(glsl-matrix/scaleMatrix);
 
 void main(void) {
-  vec4 update_position = scaleMatrix(vec3(radius)) * vec4(position, 1.0);
-  vPosition = update_position;
-  gl_Position = projectionMatrix * modelViewMatrix * update_position;
+  vec4 updatePosition = scaleMatrix(vec3(radius)) * vec4(position, 1.0);
+  vPosition = updatePosition;
+  gl_Position = projectionMatrix * modelViewMatrix * updatePosition;
 }
