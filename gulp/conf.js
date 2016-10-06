@@ -55,7 +55,7 @@ module.exports.scripts = {
   dest: `${DIR.DEST}${DIR.PATH}/js`
 };
 
-module.exports.vendor_scripts = {
+module.exports.vendorScripts = {
   src: [
     `./${DIR.SRC}/js/vendor/**.js`,
   ],
@@ -100,7 +100,7 @@ module.exports.replace = {
   }
 };
 
-module.exports.minify_css = {
+module.exports.minifyCss = {
   src: `${DIR.DEST}${DIR.PATH}/css/main.css`,
   dest: `./${DIR.BUILD}${DIR.PATH}/css`
 };

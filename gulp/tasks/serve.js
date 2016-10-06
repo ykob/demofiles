@@ -7,6 +7,6 @@ gulp.task('serve', () => {
   browserSync(conf.dst);
 });
 
-gulp.task('serve-build', () => {
+gulp.task('serveBuild', () => {
   browserSync(conf.build);
 });
