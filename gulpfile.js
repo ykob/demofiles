@@ -36,10 +36,12 @@ gulp.task('default', ['predefault'], () => {
 
 gulp.task('build', cb => {
   runSequence(
+    'cleanDest',
+    ['pug', 'sass', 'browserify', 'vendorScripts', 'copyToDest'],
     'cleanBuild',
-    ['pug', 'sass'],
     'replaceHtml',
-    ['minifyCss', 'browserify', 'vendorScripts', 'imagemin'],
+    'cleanCss',
+    'imagemin',
     'uglify',
     'copyToBuild',
     cb
