@@ -9,7 +9,8 @@ const renderer = new THREE.WebGLRenderer({
 const renderBack = new THREE.WebGLRenderTarget(window.innerWidth, window.innerHeight);
 const scene = new THREE.Scene();
 const sceneBack = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 10000);
+const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
+const cameraBack = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 10000);
 const clock = new THREE.Clock();
 const stats = new Stats();
 
@@ -19,8 +20,8 @@ const sphere = new Sphere();
 const resizeWindow = () => {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
-  camera.aspect = window.innerWidth / window.innerHeight;
-  camera.updateProjectionMatrix();
+  cameraBack.aspect = window.innerWidth / window.innerHeight;
+  cameraBack.updateProjectionMatrix();
   renderBack.setSize(window.innerWidth, window.innerHeight);
   renderer.setSize(window.innerWidth, window.innerHeight);
   sphere.resize();
@@ -45,7 +46,7 @@ const initStats = () => {
 }
 const render = () => {
   sphere.render(clock.getDelta());
-  renderer.render(sceneBack, camera, renderBack);
+  renderer.render(sceneBack, cameraBack, renderBack);
   postEffect.render(clock.getDelta());
   renderer.render(scene, camera);
 }
@@ -59,8 +60,8 @@ const renderLoop = () => {
 const init = () => {
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.setClearColor(0xeeeeee, 1.0);
-  camera.position.set(1000, 1000, 1000);
-  camera.lookAt(new THREE.Vector3());
+  cameraBack.position.set(1000, 1000, 1000);
+  cameraBack.lookAt(new THREE.Vector3());
 
   scene.add(postEffect.mesh);
   sceneBack.add(sphere.mesh);
