@@ -3,10 +3,6 @@ const glslify = require('glslify');
 export default class Sphere {
   constructor() {
     this.radius = 200;
-    this.uniforms = null;
-    this.mesh = this.createMesh();
-  }
-  createMesh() {
     this.uniforms = {
       time: {
         type: 'f',
@@ -21,6 +17,10 @@ export default class Sphere {
         value: this.radius,
       },
     };
+    this.mesh = this.createMesh();
+    this.time = 1;
+  }
+  createMesh() {
     return new THREE.Mesh(
       new THREE.SphereGeometry(1, 64, 64),
       new THREE.RawShaderMaterial({
