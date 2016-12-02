@@ -1,3 +1,4 @@
+import PostEffect from './modules/PostEffect.js';
 import Sphere from './modules/sphere.js';
 
 const canvas = document.getElementById('canvas-webgl');
@@ -5,11 +6,14 @@ const renderer = new THREE.WebGLRenderer({
   antialias: false,
   canvas: canvas,
 });
+const renderBack = new THREE.WebGLRenderTarget(window.innerWidth, window.innerHeight);
 const scene = new THREE.Scene();
+const sceneBack = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 10000);
 const clock = new THREE.Clock();
 const stats = new Stats();
 
+const postEffect = new PostEffect(renderBack.texture);
 const sphere = new Sphere();
 
 const resizeWindow = () => {
@@ -40,6 +44,8 @@ const initStats = () => {
 }
 const render = () => {
   sphere.render(clock.getDelta());
+  renderer.render(sceneBack, camera, renderBack);
+  postEffect.render(clock.getDelta());
   renderer.render(scene, camera);
 }
 const renderLoop = () => {
@@ -55,7 +61,8 @@ const init = () => {
   camera.position.set(1000, 1000, 1000);
   camera.lookAt(new THREE.Vector3());
 
-  scene.add(sphere.mesh);
+  scene.add(postEffect.mesh);
+  sceneBack.add(sphere.mesh);
 
   setEvent();
   initDatGui();
