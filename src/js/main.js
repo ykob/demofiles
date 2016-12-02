@@ -21,6 +21,7 @@ const resizeWindow = () => {
   canvas.height = window.innerHeight;
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
+  renderBack.setSize(window.innerWidth, window.innerHeight);
   renderer.setSize(window.innerWidth, window.innerHeight);
   sphere.resize();
 }
