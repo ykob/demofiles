@@ -1,5 +1,5 @@
 import PostEffect from './modules/PostEffect.js';
-import Sphere from './modules/sphere.js';
+import Sphere from './modules/Sphere.js';
 
 const canvas = document.getElementById('canvas-webgl');
 const renderer = new THREE.WebGLRenderer({
