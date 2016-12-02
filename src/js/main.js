@@ -2,7 +2,7 @@ import Sphere from './modules/sphere.js';
 
 const canvas = document.getElementById('canvas-webgl');
 const renderer = new THREE.WebGLRenderer({
-  antialias: true,
+  antialias: false,
   canvas: canvas,
 });
 const scene = new THREE.Scene();
