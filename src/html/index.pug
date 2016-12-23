@@ -1,6 +1,7 @@
 -
   var repositoryName = 'demofiles';
   var websiteDomain = 'https://ykob.github.io/' + repositoryName;
+  var themeColor = '#ffffff';
 
   var metaTitle = 'demo title';
   var metaKeywords = 'WebGL, three.js';
@@ -17,7 +18,9 @@ html(lang="ja")
     meta(name="viewport", content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1")
     meta(name="description", content=metaDescription)
     meta(name="keywords", content=metaKeywords)
-    meta(name="theme-color", content="#ffffff")
+    meta(name="theme-color", content=themeColor)
+    meta(name="msapplication-TileImage", content="/img/common/ms_tileimage.png")
+    meta(name="msapplication-TileColor", content=themeColor)
     link(rel="shortcut icon" href="./img/icon.ico")
     link(rel="apple-touch-icon" href="./img/apple-touch-icon.png")
     link(rel="stylesheet" href="./css/main.css")
