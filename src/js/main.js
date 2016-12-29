@@ -27,9 +27,9 @@ const resizeWindow = () => {
   sphere.resize();
 }
 const setEvent = () => {
-  $(window).on('resize', () => {
+  window.addEventListener('resize', () => {
     resizeWindow();
-  });
+  })
 }
 const initDatGui = () => {
   const gui = new dat.GUI();
