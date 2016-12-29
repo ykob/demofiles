@@ -84,9 +84,9 @@ module.exports.sass = {
   dest: `${DIR.DEST}${DIR.PATH}/css`,
   browsers: [
     'last 2 versions',
-    'ie >= 9',
+    'ie >= 11',
     'Android >= 4',
-    'ios_saf >= 8',
+    'ios_saf >= 9',
   ]
 };
 
