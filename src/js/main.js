@@ -29,7 +29,7 @@ const resizeWindow = () => {
   renderer.setSize(window.innerWidth, window.innerHeight);
   sphere.resize();
 }
-const setEvent = () => {
+const on = () => {
   window.addEventListener('resize', () => {
     resizeWindow();
   })
@@ -70,7 +70,7 @@ const init = () => {
   scene.add(postEffect.mesh);
   sceneBack.add(sphere.mesh);
 
-  setEvent();
+  on();
   initDatGui();
   initStats();
   resizeWindow();
