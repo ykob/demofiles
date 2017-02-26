@@ -48,9 +48,10 @@ const initStats = () => {
   document.body.appendChild(stats.dom);
 }
 const render = () => {
-  sphere.render(clock.getDelta());
+  const time = clock.getDelta();
+  sphere.render(time);
   renderer.render(sceneBack, cameraBack, renderBack);
-  postEffect.render(clock.getDelta());
+  postEffect.render(time);
   renderer.render(scene, camera);
 }
 const renderLoop = () => {
